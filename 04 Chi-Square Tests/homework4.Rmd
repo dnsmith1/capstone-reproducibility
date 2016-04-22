@@ -39,7 +39,7 @@ Create a table that shows how many people fell into each category.
 ```{r}
 table(dat$major, dat$gender)
 ```
-####The table shows that in engineering there are 11 females and 19 males and in psychology there are 18 females and 12 males.
+####The table shows that in engineering there are 11 females and 19 males and in psychology there are 18 females and 12 males. There appears to be more females in psychology and engineerig has more males.
 
 <!--
 Perform a chi-square test to determine whether or not the experimental
