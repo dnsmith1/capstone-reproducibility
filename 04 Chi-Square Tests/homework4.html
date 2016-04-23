@@ -130,7 +130,7 @@ should preface your R commands with some plain English explanation.
 -->
 <div id="the-first-code-is-used-to-read-in-the-data." class="section level4">
 <h4>The first code is used to read in the data.</h4>
-<pre class="r"><code>dat&lt;-read.csv(&quot;example4.csv&quot;)</code></pre>
+<pre class="r"><code>dat&lt;-read.csv(&quot;homework4.csv&quot;)</code></pre>
 <!--
 Check the structure of the data.
 -->
@@ -138,26 +138,26 @@ Check the structure of the data.
 <div id="the-following-code-checks-the-structure." class="section level4">
 <h4>The following code checks the structure.</h4>
 <pre class="r"><code>str(dat)</code></pre>
-<pre><code>## 'data.frame':    60 obs. of  2 variables:
-##  $ major : Factor w/ 2 levels &quot;engineering&quot;,..: 1 2 1 2 1 2 1 2 1 2 ...
-##  $ gender: Factor w/ 2 levels &quot;female&quot;,&quot;male&quot;: 1 1 1 1 1 1 1 1 2 1 ...</code></pre>
+<pre><code>## 'data.frame':    80 obs. of  2 variables:
+##  $ condition: Factor w/ 2 levels &quot;control&quot;,&quot;experimental&quot;: 2 1 2 1 2 1 2 1 2 1 ...
+##  $ agreement: Factor w/ 2 levels &quot;no&quot;,&quot;yes&quot;: 1 1 2 2 1 1 2 2 1 2 ...</code></pre>
 </div>
-<div id="the-data-frame-shows-two-levels-major-engineering-and-psychology-and-gender-female-and-male." class="section level4">
-<h4>The data frame shows two levels; major (engineering and psychology) and gender (female and male).</h4>
+<div id="the-data-frame-shows-two-levels-for-condition-control-or-experimental-and-agreement-yes-or-no" class="section level4">
+<h4>The data frame shows two levels for condition (control or experimental) and agreement (yes or no)</h4>
 <!--
 Create a table that shows how many people fell into each category.
 -->
 </div>
 <div id="the-following-code-creates-a-table-showing-the-number-of-people-in-each-category." class="section level4">
 <h4>The following code creates a table showing the number of people in each category.</h4>
-<pre class="r"><code>table(dat$major, dat$gender)</code></pre>
-<pre><code>##              
-##               female male
-##   engineering     11   19
-##   psychology      18   12</code></pre>
+<pre class="r"><code>table(dat$condition,dat$agreement)</code></pre>
+<pre><code>##               
+##                no yes
+##   control      20  20
+##   experimental 14  26</code></pre>
 </div>
-<div id="the-table-shows-that-in-engineering-there-are-11-females-and-19-males-and-in-psychology-there-are-18-females-and-12-males.-there-appears-to-be-more-females-in-psychology-and-engineerig-has-more-males." class="section level4">
-<h4>The table shows that in engineering there are 11 females and 19 males and in psychology there are 18 females and 12 males. There appears to be more females in psychology and engineerig has more males.</h4>
+<div id="the-table-shows-that-in-the-control-group-more-people-responded-with-no-than-in-the-experimental-group-and-more-people-responded-with-yes-in-the-experimental-group." class="section level4">
+<h4>The table shows that in the control group more people responded with no than in the experimental group and more people responded with yes in the experimental group.</h4>
 <!--
 Perform a chi-square test to determine whether or not the experimental
 conditions and agreement with a statement are independent or related.
@@ -169,16 +169,16 @@ insert the chi-square symbol, you can just use chi-square instead
 </div>
 <div id="the-following-code-is-used-to-run-a-chi-square-test-to-analyze-the-data." class="section level4">
 <h4>The following code is used to run a chi-square test to analyze the data.</h4>
-<pre class="r"><code>chisq.test(dat$major,dat$gender)</code></pre>
+<pre class="r"><code>chisq.test(dat$condition,dat$agreement)</code></pre>
 <pre><code>## 
 ##  Pearson's Chi-squared test with Yates' continuity correction
 ## 
-## data:  dat$major and dat$gender
-## X-squared = 2.4027, df = 1, p-value = 0.1211</code></pre>
+## data:  dat$condition and dat$agreement
+## X-squared = 1.2788, df = 1, p-value = 0.2581</code></pre>
 </div>
-<div id="the-test-shows-that-major-and-gender-are-unrelated." class="section level4">
-<h4>The test shows that major and gender are unrelated.</h4>
-<p>Chi-square = 2.4, p = .12</p>
+<div id="the-test-shows-that-condition-and-agreement-are-independent-of-eachother." class="section level4">
+<h4>The test shows that condition and agreement are independent of eachother.</h4>
+<p>Chi-square = 1.28, p = .26</p>
 </div>
 </div>
 

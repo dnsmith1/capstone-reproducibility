@@ -19,7 +19,7 @@ should preface your R commands with some plain English explanation.
 -->
 ####The first code is used to read in the data.
 ```{r}
-dat<-read.csv("example4.csv")
+dat<-read.csv("homework4.csv")
 ```
 
 
@@ -30,16 +30,15 @@ Check the structure of the data.
 ```{r}
 str(dat)
 ```
-####The data frame shows two levels; major (engineering and psychology) and gender (female and male).
-
+####The data frame shows two levels for condition (control or experimental) and agreement (yes or no)
 <!--
 Create a table that shows how many people fell into each category.
 -->
 ####The following code creates a table showing the number of people in each category. 
 ```{r}
-table(dat$major, dat$gender)
+table(dat$condition,dat$agreement)
 ```
-####The table shows that in engineering there are 11 females and 19 males and in psychology there are 18 females and 12 males. There appears to be more females in psychology and engineerig has more males.
+####The table shows that in the control group more people responded with no than in the experimental group and more people responded with yes in the experimental group. 
 
 <!--
 Perform a chi-square test to determine whether or not the experimental
@@ -51,7 +50,7 @@ insert the chi-square symbol, you can just use chi-square instead
 -->
 ####The following code is used to run a chi-square test to analyze the data.
 ```{r}
-chisq.test(dat$major,dat$gender)
+chisq.test(dat$condition,dat$agreement)
 ```
-####The test shows that major and gender are unrelated.
-Chi-square = 2.4, p = .12
+####The test shows that condition and agreement are independent of eachother.
+Chi-square = 1.28, p = .26
